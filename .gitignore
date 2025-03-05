@@ -1,0 +1,6 @@
+.venv/
+cats_vs_dogs_classifier.h5
+train/
+validation/
+__pycache__/
+*.pyc
