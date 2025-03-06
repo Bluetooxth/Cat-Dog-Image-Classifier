@@ -15,7 +15,7 @@ mixed_precision.set_global_policy('mixed_float16')
 # Set random seed for reproducibility
 tf.keras.utils.set_random_seed(42)
 
-# Define dataset directories
+# Dataset directories
 train_dir = "train/"
 val_dir = "validation/"
 
@@ -51,7 +51,7 @@ base_model.trainable = False
 
 # Add custom classification layers
 x = base_model.output
-x = GlobalAveragePooling2D()(x)  # Replaces Flatten
+x = GlobalAveragePooling2D()(x)
 x = Dense(512, activation="relu")(x)
 x = Dropout(0.5)(x)
 output_layer = Dense(1, activation="sigmoid")(x)
@@ -79,5 +79,3 @@ model.save("cats_vs_dogs_transfer_learning.keras")
 # Evaluate the model on the validation dataset
 loss, accuracy = model.evaluate(val_data)
 print(f"Validation Accuracy: {accuracy*100:.2f}%")
-
-# Optionally, fine-tune the model by unfreezing some layers
