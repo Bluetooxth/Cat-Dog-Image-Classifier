@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 from tensorflow import keras
 
-model = keras.models.load_model("cats_vs_dogs_classifier.h5")
+model = keras.models.load_model("cats_vs_dogs_transfer_learning.keras")
 
 def preprocess_image(image):
     image = cv2.resize(image, (150, 150))
